@@ -173,5 +173,5 @@ function Welcome(props) {
   return <h1>Hello, {props.name}</h1>;
 }
 ```
-⬆️ [Back to Top](#react-components-class-vs-function)
+⬆️ [Back to Top](#react-interview-questions--answers)
 ---
