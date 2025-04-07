@@ -11,6 +11,7 @@
 | 3. | [What is JSX?](#3-what-is-jsx) |
 | 4. | [What is the difference between Element and Component?](#4-what-is-the-difference-between-element-and-component) |
 | 5. | [How to create components in React?](#5-how-to-create-components-in-react) |
+| 6. | [When to use a Class Component over a Function Component?](#6-when-to-use-a-class-component-over-a-function-component) |
 
 ---
 
@@ -119,4 +120,58 @@ class Greeting extends React.Component {
 }
 ```
 ⬆️ [Back to Top](#react-interview-questions--answers)
+---
+
+## 6. When to use a Class Component over a Function Component?
+After the addition of **hooks** in functional component it is always recommended to use **functional component** over **class component** in React. Because you could use **State**, **lifecycle methods** and other features that were only available in class components it is also now available in functional component.
+
+But even their are two reasons to use class component over functional components.
+
+i.) If you need a React functionality whose functional component is not equivalent to the level of class components, in this scenario you can use class component over functional component.
+
+ii.) Class components are used for maintain backward compatability. 
+## Summary:
+
+### Use functional component:
+- If you don't need state or lifecycle methods.
+- For **simplicity**, **readablity**, and need to follow **modern code practices**, especially with the use of **React Hooks** for state management and side effects etc. You can go for functional component.
+
+### Use Class component:
+- If you need to manage state or need to use **lifecycle methods**. you can go for class components
+- Class components are used for maintain backward compatability. 
+- Some advanced **error handling** scenarios (using Error Boundaries)
+
+### Evolution of Components in React
+
+#### Class Components
+```jsx
+class Welcome extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { count: 0 };
+  }
+  
+  componentDidMount() {
+    console.log('Component mounted');
+  }
+
+  render() {
+    return <h1>Hello, {this.props.name}</h1>;
+  }
+}
+```
+
+#### Function Components with Hooks
+```jsx
+function Welcome(props) {
+  const [count, setCount] = useState(0);
+  
+  useEffect(() => {
+    console.log('Component mounted');
+  }, []);
+
+  return <h1>Hello, {props.name}</h1>;
+}
+```
+⬆️ [Back to Top](#react-components-class-vs-function)
 ---
